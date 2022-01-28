@@ -1,12 +1,21 @@
 require 'Datavyu_API.rb'
 
 begin
-    ## This needs editing to point to the correct dir
+    # ========================
+    # User defnied variables
+    # ========================
+
+    # Set this to the path containing the script and data files
     project_dir ="~/Documents/Hana/behavExtract/"
+    
+    # Double check this is correct
+    frames_per_sec = 25
+    
+    # ========================
+    # ========================
 
-    frame_gap = 40
     outfile_type = ".csv"
-
+    frame_gap = 1000 / frames_per_sec
 
     input_dir = File.expand_path(project_dir + "data_in/")
     output_dir = File.expand_path(project_dir + "data_out/")   
