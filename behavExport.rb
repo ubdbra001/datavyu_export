@@ -14,7 +14,8 @@ begin
     # ========================
     # ========================
 
-    outfile_type = ".csv"
+    outfile_type = ".tsv"
+    sep = ';'
     frame_gap = 1000 / frames_per_sec
 
     input_dir = File.expand_path(project_dir + "data_in/")
@@ -81,9 +82,10 @@ begin
         time = min
         i = 0
         total_i = (max - min) / frame_gap
-        output = "time" + ',' + header.join(',') + "\n"
+        output = "time" + sep + header.join(sep) + "\n"
         while time <= max
-          output += time.to_s + ','
+          output += time.to_s + sep
+          output2 = Array.new
           for col in columns
             cell = getCellFromTime(col, time)
             if cell != nil
@@ -92,9 +94,9 @@ begin
             else
               data = [''] * (col.arglist.length + 3)
             end
-            output += data.join(',') + ','
+            output2 = output2.concat(data)
           end
-          output += "\n"
+          output += output2.join(sep) + "\n"
           time += frame_gap
           i += 1
           if i % 1000 == 0
