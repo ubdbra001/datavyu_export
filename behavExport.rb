@@ -14,8 +14,8 @@ begin
     # ========================
     # ========================
 
-    outfile_type = ".tsv"
-    sep = ';'
+    outfile_type = ".txt"
+    sep = '|'
     frame_gap = 1000 / frames_per_sec
 
     input_dir = File.expand_path(project_dir + "data_in/")
